@@ -1,0 +1,30 @@
+.watch-container{
+    width: 100vw;
+    height: 100vh;
+    video{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    
+    .watch-navigate{
+        color: var(--sub-color);
+
+        font-size: 3rem;
+        position: fixed;
+        padding-left: 10px;
+        display: flex;
+        align-items: center;
+        z-index: 1;
+        .watch-icon{
+            font-size: 3rem;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        
+        a{
+            color: inherit;
+            text-decoration: none;
+        }
+    }
+}

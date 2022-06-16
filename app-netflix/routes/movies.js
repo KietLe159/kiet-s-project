@@ -64,17 +64,25 @@ router.get("/random", verifyToken, async (req, res)=>{
         return;
     }
     const type= req.query.type;
+
     try{
+       
         if(type === "series"){
-            const movie = await Movie.aggregate([
+             const movie = await Movie.aggregate([
                 {$match:{isSeries: true}},
                 {$sample: {size: 1}}
             ])
             res.status(200).json(movie);
-        }else{
+
+        }else if(type === "movies"){
             const movie = await Movie.aggregate([
                 {$match:{isSeries: false}},
                 {$sample: {size: 1}}
+            ])
+            res.status(200).json(movie);
+        }else{
+            const movie= await Movie.aggregate([
+                {$sample:{size: 1}}
             ])
             res.status(200).json(movie);
         }

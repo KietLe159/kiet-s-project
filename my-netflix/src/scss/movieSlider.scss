@@ -1,0 +1,26 @@
+.slider-container{
+    padding: 0 30px 0 30px;
+    color: var(--sub-color);
+}
+
+
+.slick-list{
+    overflow: visible !important;
+}
+
+.slick-prev{
+    z-index: 2 ;
+}
+
+.slick-custom-arrow{
+    color: red !important;
+    background-color: rgba(11, 11, 11, 0.3) !important;
+    height: 100% !important;
+    font-size: 4rem !important;
+
+}
+
+.slick-disabled{
+    visibility: hidden;
+}
+
