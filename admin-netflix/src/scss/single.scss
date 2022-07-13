@@ -1,0 +1,88 @@
+.single-container{
+    display: flex;
+
+    .single-content{
+        flex: 6;
+    }
+}
+
+.single-content-top{
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    .single-content-left{
+        padding: 20px;
+        flex: 3;
+        border-radius: 10px;
+        box-shadow: rgba(211, 205, 205, 0.6) 0px 5px 15px;
+        position: relative;
+        overflow: hidden;
+        .single-info{
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+            color: gray;
+        }
+
+        .single-editButton{
+            color: hsl(253, 94%, 65%);
+            position: absolute;
+            padding: 5px;
+            background-color: rgba($color: #6439ff, $alpha: 0.1);
+            right: 0;
+            top: 0;
+            border-radius: 0 0 0 10px;
+            cursor: pointer;
+        }
+    }
+
+    .single-content-right{
+        flex:6;
+    }
+}
+
+.single-detail{
+    display: flex;
+
+    .single-img{
+        width: 150px;
+        height: 150px;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }
+
+    .single-items{
+        margin-left: 20px;
+        .single-title{
+            font-size: 3rem;
+            margin: 0 0 10px 0;
+        }
+
+        .single-item{
+            margin-bottom: 10px;
+
+            span:nth-child(1){
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+.single-content-bottom{
+    margin: 10px 20px 20px 20px;
+    border-radius: 10px;
+    box-shadow: rgba(211, 205, 205, 0.6) 0px 5px 15px;
+    
+    h1{
+        margin-left: 20px;
+       padding-top: 20px;
+       margin-bottom: 0;
+       font-size: 2rem;
+       color: gray;
+    }
+   
+}
