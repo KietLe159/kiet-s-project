@@ -6,11 +6,15 @@ const authRoute = require("./routes/auth");
 const userRoute = require("./routes/users");
 const movieRoute = require("./routes/movies");
 const listRoute = require("./routes/lists");
+const cookieParser = require("cookie-parser")
+
+
 const cors = require("cors");
 
 dotenv.config();
 
-app.use(cors());
+app.use(cors({credentials:true, origin: "http://localhost:4000"}));
+app.use(cookieParser())
 
 app.use(express.json())
 
@@ -23,7 +27,6 @@ mongoose.connect(process.env.MONGO_URL)
     .catch((err)=>{
         console.log(err);
     });
-
 app.use("/api/auth", authRoute);
 
 app.use("/api/users", userRoute);

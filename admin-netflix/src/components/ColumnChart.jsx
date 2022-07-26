@@ -3,12 +3,6 @@ import "../scss/columnChart.scss"
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import usersApi from "../callApi/userApi"
 
-const data = [
-  { name: "January", Total: 1200},
-  { name: "February", Total: 2100},
-  
-];
-
 const ColumnChart = ({aspect, title}) => {
   const [stats, setStats ]= useState([])
 

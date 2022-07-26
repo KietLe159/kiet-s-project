@@ -30,13 +30,14 @@ const Home = () => {
         </div>
 
         <div className="home-list-container">
-          <h1 className="home-list-title">Latest Transactions</h1>
-          <TableData />
-        </div>
-
-        <div className="home-list-container">
-          <h1 className="home-list-title">Latest Transactions</h1>
-          <TableData />
+          <div className="home-list-user">
+            <h1 className="home-list-title">Latest User</h1>
+            <TableData type="users"/>
+          </div>
+          <div className="home-list-movie">
+            <h1 className="home-list-title">Latest Movie</h1>
+            <TableData type="movies"/>
+          </div>
         </div>
 
       </div>

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import "../scss/sideBar.scss"
-import {Dashboard ,Person, Inventory, CreditCard, LocalShipping, InsertChart, HealthAndSafety, Notifications, Psychology, Settings, AccountCircle, Logout} from '@mui/icons-material';
+import {Dashboard ,Person, PlayCircleFilledWhite, CreditCard, LocalShipping, InsertChart, HealthAndSafety, Notifications, Psychology, Settings, AccountCircle, Logout} from '@mui/icons-material';
 import {Link} from "react-router-dom"
 import {ThemeContext} from "../darkTheme/themeContextProvider"
 
@@ -35,10 +35,10 @@ const SideBar = () => {
                 </li>
                 </Link>
 
-                <Link to="/product">
+                <Link to="/movie">
                 <li>
-                    <Inventory className="side-bar-icon" />
-                    <span>Products</span> 
+                    <PlayCircleFilledWhite className="side-bar-icon" />
+                    <span>Movie</span> 
                 </li>
                 </Link>
 

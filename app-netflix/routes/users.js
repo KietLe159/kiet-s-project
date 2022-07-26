@@ -43,7 +43,10 @@ router.delete("/:id", verifyToken, async (req, res)=>{
 
 //GET
 router.get("/find/:id", verifyToken, async (req, res)=>{
-
+    if(!req.user.isAdmin){
+        res.status(401).json("You not allow to get this account")
+        return;
+    }
     try{
         const user= await User.findById(req.params.id);
         const {password, ...info}= user._doc;
@@ -55,13 +58,10 @@ router.get("/find/:id", verifyToken, async (req, res)=>{
 
 //GET ALL
 router.get("/", verifyToken, async (req, res)=>{
-    if(!req.user.isAdmin){
-        res.status(401).json("You not allow to get this account")
-        return;
-    }
+    
     try{
         const query= (req.query.new==='true');
-        const user= query ? await User.find().limit(3).sort('-createdAt'): await User.find();
+        const user= query ? await User.find().limit(5).sort('-createdAt'): await User.find();
         const info= user.map(item =>{
             const {password, ...info}= item._doc;
             return info;
@@ -78,20 +78,7 @@ router.get("/stats", verifyToken, async (req, res)=>{
         res.status(401).json("you not allow to check the stats")
         return;
     }
-    const months= [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December'
-    ]
+    
     try{
     const info= await User.aggregate([{
         $project:{
@@ -103,13 +90,11 @@ router.get("/stats", verifyToken, async (req, res)=>{
             total: {$sum: 1}
         }
     }
-]) 
-    for( const item of info){
-        item.month= months[item._id-1];
-    }
-
+])  
+    
     res.status(200).json(info);
     }catch(err){
+
         res.status(500).json(err);
     }
     

@@ -85,7 +85,8 @@ router.get("/random", verifyToken, async (req, res)=>{
 
 router.get("/", verifyToken, async (req, res)=>{
     try{
-        const movieList= await Movie.find();
+        const query= req.query.new;
+        const movieList= query? await Movie.find().limit(5).sort('-createdAt') : await Movie.find();
         res.status(200).json(movieList.reverse());
     }catch(err){
         res.status(500).json(err);

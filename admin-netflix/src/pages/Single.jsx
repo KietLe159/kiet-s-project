@@ -52,7 +52,7 @@ const Single = () => {
         </div>
 
         <div className="single-content-bottom">
-          <h1>Last Transactions</h1>
+          <h1>User List</h1>
           <DatabaseTable />
         </div>
       </div>
