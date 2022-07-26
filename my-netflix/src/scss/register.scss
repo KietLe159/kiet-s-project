@@ -1,0 +1,80 @@
+@mixin background-theme {
+    background: linear-gradient(45deg, rgba(11, 11, 11, 0.2), rgba(11, 11, 11, 0.7) ) ,
+    url("https://firebasestorage.googleapis.com/v0/b/shop-cart-8f373.appspot.com/o/background-netflix.png?alt=media&token=296e67b5-a2cb-4353-8e00-676a9b04416f")
+    no-repeat center / cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+@mixin navbar {
+    display: flex;
+        justify-content: space-between;
+        align-items: center;    
+        padding: 0 30px;
+        
+        img{
+            width: 200px;
+            height: 80px;
+            object-fit: contain;
+        }
+}
+
+.register-container{
+    @include background-theme;
+    
+    .register-nav{
+        @include navbar;
+        span{
+            cursor: pointer;
+            color: white;
+            font-size: 2.3rem;
+            padding: 5px 10px;
+            border-radius: 8px;
+            background-color: red;
+
+            &:hover{
+                background-color: rgba($color: red, $alpha: 0.8);
+            }
+        }
+    }
+}
+
+.register-form{
+    color: white;
+    text-align: center;
+    width: 70vw;
+    margin: 140px auto ;
+
+    h1{
+        font-size: 5rem;
+    }
+    .form-handle    {
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        margin: auto;
+        height: 50px;
+        border-radius: 6px;
+        overflow: hidden;
+        
+        input{
+            font-size: 2.5rem;
+        }
+        .form-text{
+            flex: 8;
+            outline: none;
+        }
+        .form-submit{
+            flex: 2;
+            outline: none;
+            background-color: red;
+            border: transparent;
+            color: white;
+            cursor: pointer;
+
+            &:hover{
+                background-color: rgba($color: red, $alpha: 0.8);
+            }
+        }
+    }
+}
