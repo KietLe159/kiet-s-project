@@ -9,7 +9,7 @@ router.post("/upload", verifyToken, async (req, res)=>{
     }
     try{
         const newMovie= new Movie(req.body);
-        const movie= await newMovie.save();
+        await newMovie.save();
         res.status(200).json(newMovie);
     }catch(err){
         res.status(500).json(err);

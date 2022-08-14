@@ -2,21 +2,21 @@ import React from 'react'
 import "../scss/login.scss"
 import {useForm} from "react-hook-form"
 import {authApi} from "../callApi/authApi"
-import { loginStore } from '../loginRedux/storeLoginRedux'
+import { loginStore } from '../Redux/storeLoginRedux'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+
 
 
 const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   let navigate = useNavigate();
-  const dispatch = useDispatch()
+
   
   const onSubmit =async (data) => {
     try{
     const res= await authApi.login(data)
     
-    res.isAdmin&&dispatch({type: "LOG_IN", payload: res})
+    res.isAdmin && loginStore.dispatch({type: "LOG_IN", payload: res})
     
     navigate("/", {replace:true})
     }catch(err){

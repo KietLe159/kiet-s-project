@@ -29,7 +29,6 @@ const ColumnChart = ({aspect, title}) => {
           return [...result, {month: MONTHS[cur._id-1], Total: cur.total}]
         }
           ,[]) 
-          console.log(data)
         setStats(data);
       }catch(err){
         throw err

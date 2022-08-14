@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "../scss/tableData.scss"
 import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material/';
-import usersApi from '../callApi/userApi';
+import databaseApi from '../callApi/databaseApi';
 
 const TableData = ({type}) => {
   const [data, setData]= useState([])
@@ -9,7 +9,7 @@ const TableData = ({type}) => {
   useEffect(()=>{
     const fetchNew= async()=>{
       try{
-      const res= await usersApi.getNew(type)
+      const res= await databaseApi.getNew(type)
       setData(res);
       }catch(err){
         throw err 

@@ -3,11 +3,16 @@ import "../scss/sideBar.scss"
 import {Dashboard ,Person, PlayCircleFilledWhite, CreditCard, LocalShipping, InsertChart, HealthAndSafety, Notifications, Psychology, Settings, AccountCircle, Logout} from '@mui/icons-material';
 import {Link} from "react-router-dom"
 import {ThemeContext} from "../darkTheme/themeContextProvider"
+import {fetchLogout} from "../loginProcess/fetchLogout"
 
 const SideBar = () => {
     const context= useContext(ThemeContext)
-
-  return (
+    
+    const handleLogout= async()=>{
+       await fetchLogout();
+        
+    }
+  return (  
     <div className='sidebar-container'>
         <div className='sidebar-top'>
             <Link to="/">
@@ -85,7 +90,7 @@ const SideBar = () => {
                     <span>Profile</span> 
                 </li>
 
-                <li>
+                <li onClick={handleLogout}>
                     <Logout  className="side-bar-icon" />
                     <span>Logout</span> 
                 </li>

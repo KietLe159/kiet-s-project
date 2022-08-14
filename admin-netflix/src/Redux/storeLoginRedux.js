@@ -3,7 +3,6 @@ import {legacy_createStore} from "redux"
 const INITIAL_STATE= {
     user: JSON.parse(localStorage.getItem("user")) || null,
 }
-
 const loginReducer= (state= INITIAL_STATE, action)=>{
     switch (action.type){
         case "LOG_IN":{
@@ -13,9 +12,9 @@ const loginReducer= (state= INITIAL_STATE, action)=>{
             return {user};
         }
         case "LOG_OUT":
-            localStorage.removeItem("token")
-            localStorage.removeItem("user")
-            return INITIAL_STATE
+            localStorage.clear()
+            
+            return {user:null}
         default:
             return state
     }
